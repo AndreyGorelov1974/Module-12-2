@@ -23,15 +23,55 @@ int main()
     // размер массива
     int sizeArr = 5;
     // высота кучи
-    int heapHeight = log(sizeArr) / log(2);
+    int heapHeight = log(sizeArr) / log(2) + 1;
 
     // вывод кучи
     std::cout << arr[0] << std::endl;
-    for (int i = 1; i <= heapHeight; i++)
+    for (int i = 1; i < heapHeight; i++)
     {
         for (int j = pow(2, i) - 1; j <= pow(2, i + 1) - 2; j++)
         {
-            if (j <= sizeArr)
+            if (j < sizeArr)
+            {
+                std::cout << arr[j] << " ";
+            }
+        }
+        std::cout << std::endl;
+    }
+
+    for (int k = 1; k < heapHeight; k++)
+    {
+        for (int i = sizeArr / 2 - 1; i >= 0; i--)
+        {
+
+            // Инициализируем наибольший элемент как корень
+            int largest = i;
+            int l = 2 * i + 1; // левый = 2*i + 1
+            int r = 2 * i + 2; // правый = 2*i + 2
+
+            // Если левый дочерний элемент больше корня
+            if (arr[l] > arr[largest])
+                largest = l;
+
+            // Если правый дочерний элемент больше, чем самый большой элемент на данный момент
+            if (arr[r] > arr[largest])
+                largest = r;
+
+            // Если самый большой элемент не корень
+            if (largest != i)
+            {
+                std::swap(arr[i], arr[largest]);
+            }
+        }
+    }
+    
+    // вывод кучи
+    std::cout << arr[0] << std::endl;
+    for (int i = 1; i < heapHeight; i++)
+    {
+        for (int j = pow(2, i) - 1; j <= pow(2, i + 1) - 2; j++)
+        {
+            if (j < sizeArr)
             {
                 std::cout << arr[j] << " ";
             }

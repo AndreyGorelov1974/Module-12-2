@@ -64,7 +64,7 @@ int main()
             }
         }
     }
-    
+
     // вывод кучи
     std::cout << arr[0] << std::endl;
     for (int i = 1; i < heapHeight; i++)
@@ -79,20 +79,9 @@ int main()
         std::cout << std::endl;
     }
 
-    /*for (int i = sizeArr / 2 - 1; i >= 0; i--)
+    for (int i = 0; i < sizeArr; i++)
     {
-        summSequence += i;
+    std::cout << arr[i] << " ";
     }
-
-    for (int i = 0; i < 15; i++)
-    {
-        summ += numbers[i];
-    }
-
-    int initialNumber = (summ - summSequence) / sequenceLength;
-    int repeatingNumber = (summ - summSequence) % sequenceLength + initialNumber;
-
-    std::cout << "Summa: " << summ << std::endl;
-    std::cout << "Initial number: " << ++initialNumber << std::endl;
-    std::cout << "A repeating number: " << repeatingNumber << std::endl;*/
+    
 }
